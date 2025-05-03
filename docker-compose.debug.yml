@@ -1,0 +1,20 @@
+# This is the Docker Compose configuration file for debugging.
+# It sets up the Flask application with debugging enabled and allows remote debugging.
+
+services:
+  web:  # Define a service named "web"
+    build: .  # Build the Docker image using the Dockerfile in the current directory
+    ports:
+      - "5000:5000"  # Map port 5000 inside the container to port 5000 on the host machine (for Flask app)
+      - "5678:5678"  # Map port 5678 inside the container to port 5678 on the host machine (for debugging)
+    volumes:
+      - .:/app  # Mount the current directory (host) to /app inside the container for live code syncing
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run --no-debugger --no-reload --host 0.0.0.0 --port 5000"]  
+    # Run a shell command:
+    # 1. Install debugpy (a Python debugger) into /tmp inside the container
+    # 2. Start debugpy and listen for debugging connections on port 5678
+    # 3. Run the Flask app using `flask run`:
+    #    - --no-debugger: Prevent Flask from using its built-in debugger
+    #    - --no-reload: Disable Flask’s automatic reloader (to avoid conflicts with debugpy)
+    #    - --host 0.0.0.0: Allow Flask to be accessed from outside the container
+    #    - --port 5000: Run Flask on port 5000

@@ -1,0 +1,15 @@
+# This is the main Docker Compose configuration file.
+# It defines and configures the services needed to run the application in a container.
+# The "web" service is responsible for running the Flask application.
+
+version: '3'  # Specifies the Docker Compose file format version
+
+services:
+  web:  # Defines a service named 'web'
+    image: first-rest-api # Specifies the name of the Docker image to be used or created
+    build: .  # Builds the image from the Dockerfile in the current directory (.)
+    ports:
+      - "5000:5000"  # Maps port 5000 on the host to port 5000 inside the container
+    volumes:
+      - .:/app  # Mounts the current directory (.) to the /app directory inside the container, enabling live code updates
+

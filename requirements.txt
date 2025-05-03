@@ -1,0 +1,27 @@
+# List the dependencies the app depends on
+# Flask is a lightweight web framework for building web applications and APIs.
+flask<3.0  
+
+# Flask-Smorest is an extension for Flask that helps with building REST APIs, including OpenAPI documentation.
+flask-smorest  
+
+# Python-dotenv loads environment variables from a .env file, allowing you to manage configurations without hardcoding them.
+python-dotenv  
+
+# Marshmallow is a library for data serialization, deserialization, and validation. It helps structure and validate API request/response data.
+marshmallow  
+
+# SQLAlchemy is a powerful Object-Relational Mapper (ORM) for interacting with databases using Python.
+SQLAlchemy
+
+# Flask-SQLAlchemy integrates SQLAlchemy with Flask, simplifying database interactions in Flask applications.
+flask-sqlalchemy  
+
+# flask-jwt-extended is a Python library that provides extended functionality for handling JSON Web Tokens (JWTs) in Flask applications.
+flask-jwt-extended
+
+# passlib is a python library that makes the passwords unreadable when we put it in a database
+passlib
+
+# flask-migrate is a tool that automatically updates your app’s database whenever you change what kind of data your app needs to store.
+flask-migrate
