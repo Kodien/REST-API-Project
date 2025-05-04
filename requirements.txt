@@ -25,3 +25,6 @@ passlib
 
 # flask-migrate is a tool that automatically updates your app’s database whenever you change what kind of data your app needs to store.
 flask-migrate
+
+# Gunicorn stands for Green Unicorn. It's a production-grade WSGI HTTP server for running Python web apps — especially Flask, Django, or FastAPI.
+gunicorn
