@@ -28,3 +28,5 @@ flask-migrate
 
 # Gunicorn stands for Green Unicorn. It's a production-grade WSGI HTTP server for running Python web apps — especially Flask, Django, or FastAPI.
 gunicorn
+
+psycopg2-binary
