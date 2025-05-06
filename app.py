@@ -11,6 +11,7 @@ from flask import Flask, jsonify  # Imports the Flask class to create your web a
 from flask_smorest import Api  # Used to organize your REST API using Blueprints and generate OpenAPI documentation
 from flask_jwt_extended import JWTManager # Imports the flask jwt that creates an access token for your user when they logged in.
 from flask_migrate import Migrate
+from dotenv import load_dotenv
 
 from models import BlocklistModel
 from models import ItemModel
@@ -39,7 +40,7 @@ def create_app(db_url=None):
 
     # 1️⃣ Initialize the app
     app = Flask(__name__)  # Creates the Flask app object
-
+    load_dotenv()
     # 2️⃣ Configure Flask-Smorest for Swagger API documentation
     app.config["PROPAGATE_EXCEPTIONS"] = True  # Ensures all errors are shown during development
     app.config["API_TITLE"] = "First REST API"  # Title for the API docs
