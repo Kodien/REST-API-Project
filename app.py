@@ -84,7 +84,7 @@ def create_app(db_url=None):
     
     # This function is called when a token is used after it has expired
     @jwt.expired_token_loader  
-    def expired_token_callback(jwt_header, jwt_payload):  
+    def expired_token_callback(jwt_header, jwt_payload):
         return (
             jsonify({"message": "The token has expired.", "error": "token_expired"}),  
             401,  # Return a 401 Unauthorized status code

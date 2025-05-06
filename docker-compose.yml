@@ -2,23 +2,28 @@
 # It defines and configures the services needed to run the application in a container.
 # The "web" service is responsible for running the Flask application.
 
-version: "3.9"
+version: "3"
 services:
   web:
-    image: first-rest-api
     build: .
     ports:
-      - "5000:5000"
+      - "5000:80"
     environment:
-      - DATABASE_URL=postgresql://postgres:your_password@db:5432/rest_api_db
+      - DATABASE_URL=postgresql://postgres:password@db/rest_api_db
     depends_on:
       - db
+    env_file:
+      - .\.env
 
   db:
-    image: postgres:15
+    image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: rest_api_db
+      POSTGRES_PASSWORD: password
+    env_file:
+      - .\.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+volumes:
+  postgres_data:
