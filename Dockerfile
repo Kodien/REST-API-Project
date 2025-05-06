@@ -16,4 +16,4 @@ COPY . .
 
 # Specifies the command to run when the container starts.
 # This runs the Flask application, making it accessible on all network interfaces (0.0.0.0).
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:create_app()"]
+CMD ["/bin/bash", "docker-entrypoint.sh" ]
